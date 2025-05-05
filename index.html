@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Droit des Biens</title>
+    <title>Quiz de Droit des Assurances</title>
     <style>
         :root {
             --primary-color: #6366f1;
@@ -219,15 +219,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Quiz de Droit des Biens</h1>
+        <h1>Quiz de Droit des Assurances</h1>
         
         <div id="quiz-section">
             <div class="quiz-header">
-                <div class="question-counter">Question <span id="current-question">1</span>/<span id="total-questions">20</span></div>
+                <div class="question-counter">Question <span id="current-question">1</span>/<span id="total-questions">40</span></div>
                 <div class="progress-container">
                     <div class="progress-bar" id="progress"></div>
                 </div>
-                <div class="score-container">Score: <span id="score">0</span>/20</div>
+                <div class="score-container">Score: <span id="score">0</span>/40</div>
             </div>
             
             <div class="question-container">
@@ -243,7 +243,7 @@
         
         <div class="results" id="results-section">
             <h2>Résultats du Quiz</h2>
-            <div class="final-score">Votre score: <span id="final-score">0</span>/20</div>
+            <div class="final-score">Votre score: <span id="final-score">0</span>/40</div>
             
             <div class="result-details" id="incorrect-answers">
                 <h3>Revue des réponses incorrectes:</h3>
@@ -257,204 +257,504 @@
     <script>
         const quizData = [
             {
-                question: "En droit, que désigne principalement le terme « bien » ?",
+                question: "Le contrat d'assurance est :",
                 options: [
-                    "Les choses qui servent à l'usage de l'homme et permettent de satisfaire ses besoins.",
-                    "Les personnes qui possèdent des droits.",
-                    "Les éléments immatériels uniquement.",
-                    "Les objets sans valeur économique."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quel est le rôle principal du droit des biens en droit patrimonial ?",
-                options: [
-                    "Étudier la circulation des biens entre les patrimoines.",
-                    "Analyser les rapports entre les personnes et leurs biens.",
-                    "Fournir une vue d'ensemble des différents biens et leur régime juridique.",
-                    "Réglementer uniquement les biens immatériels."
+                    "un contrat à titre gratuit",
+                    "un contrat unilatéral",
+                    "un contrat synallagmatique",
+                    "un contrat commutatif"
                 ],
                 correct: 2
             },
             {
-                question: "Pourquoi le Livre II du Code civil, qui traite des biens, n'a-t-il pas été profondément réformé depuis la codification napoléonienne ?",
+                question: "La conclusion d'un contrat d'assurance intervient :",
                 options: [
-                    "Parce qu'il est considéré comme obsolète et inutile.",
-                    "Parce qu'il contient des concepts forts capables de s'adapter aux nouvelles richesses.",
-                    "Parce que la société contemporaine n'a pas évolué depuis 1804.",
-                    "Parce qu'il ne s'applique qu'aux biens immobiliers."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quelle est la conception adoptée par la Côte d'Ivoire concernant la théorie du patrimoine ?",
-                options: [
-                    "La théorie du patrimoine d'affectation.",
-                    "La conception personnaliste du patrimoine.",
-                    "La théorie des patrimoines multiples.",
-                    "La conception économique du patrimoine."
-                ],
-                correct: 1
-            },
-            {
-                question: "Selon la conception personnaliste du patrimoine, laquelle des affirmations suivantes est correcte ?",
-                options: [
-                    "Une personne peut avoir plusieurs patrimoines.",
-                    "Le patrimoine est rattaché à l'activité exercée par une personne.",
-                    "Le patrimoine est un attribut de la personne et chaque personne a un patrimoine unique.",
-                    "Les droits extrapatrimoniaux font partie du patrimoine."
+                    "lors de la signature du contrat",
+                    "après le paiement de la prime initiale",
+                    "au moment de l'échange des consentements sur le risque et la prime",
+                    "après la réalisation du risque"
                 ],
                 correct: 2
             },
             {
-                question: "Quels droits sont considérés comme extrapatrimoniaux selon la conception personnaliste du patrimoine ?",
+                question: "Quel événement ne peut être garanti par une assurance ?",
                 options: [
-                    "Les droits de propriété.",
-                    "Les droits de la personnalité, comme le droit au nom et à la vie privée.",
-                    "Les droits de créance.",
-                    "Les droits réels accessoires."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quel est l'inconvénient principal de la théorie du patrimoine d'affectation ?",
-                options: [
-                    "Elle ne permet pas de distinguer les biens meubles des biens immeubles.",
-                    "Elle limite les créanciers à se faire payer uniquement sur les biens affectés à une activité spécifique.",
-                    "Elle ne reconnaît pas les droits extrapatrimoniaux.",
-                    "Elle interdit la transmission du patrimoine à cause de mort."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quelle est la différence entre les droits patrimoniaux et extrapatrimoniaux ?",
-                options: [
-                    "Les droits patrimoniaux sont cessibles et saisissables, tandis que les droits extrapatrimoniaux ne le sont pas.",
-                    "Les droits extrapatrimoniaux concernent uniquement les biens immobiliers.",
-                    "Les droits patrimoniaux ne peuvent pas être évalués en argent.",
-                    "Les droits extrapatrimoniaux sont toujours transmissibles à cause de mort."
+                    "L'usure normale d'un bien",
+                    "Un incendie imprévisible",
+                    "La mort d'une personne assurée",
+                    "Un accident de la circulation"
                 ],
                 correct: 0
             },
             {
-                question: "Quelle est la principale différence entre la conception personnaliste et la théorie du patrimoine d'affectation ?",
+                question: "Parmi ces assurances, laquelle est interdite par l'ordre public ?",
                 options: [
-                    "La conception personnaliste rattache le patrimoine à la personne, tandis que la théorie du patrimoine d'affectation le rattache à une activité.",
-                    "La théorie du patrimoine d'affectation interdit la transmission du patrimoine.",
-                    "La conception personnaliste permet d'avoir plusieurs patrimoines.",
-                    "La théorie du patrimoine d'affectation exclut les biens incorporels."
+                    "Assurance d'une amende pénale",
+                    "Assurance incendie",
+                    "Assurance responsabilité civile",
+                    "Assurance vie"
                 ],
                 correct: 0
             },
             {
-                question: "Quelle est la position de la législation française concernant la théorie du patrimoine ?",
+                question: "Pour être assurable, un risque doit :",
                 options: [
-                    "Elle adopte strictement la conception personnaliste.",
-                    "Elle adopte strictement la théorie du patrimoine d'affectation.",
-                    "Elle propose une approche nuancée en permettant des patrimoines affectés à certaines activités.",
-                    "Elle interdit toute forme de patrimoine multiple."
+                    "être indépendant de la volonté de l'assuré",
+                    "dépendre exclusivement de la volonté de l'assuré",
+                    "être certain de se réaliser",
+                    "avoir déjà eu lieu avant la souscription"
+                ],
+                correct: 0
+            },
+            {
+                question: "Selon l'article 12 du Code CIMA, l'assuré doit déclarer à l'assureur :",
+                options: [
+                    "les risques à couvrir, tout sinistre et tout changement de circonstances personnelles",
+                    "uniquement les sinistres survenus",
+                    "uniquement les modifications de la prime",
+                    "uniquement les changements de domicile"
+                ],
+                correct: 0
+            },
+            {
+                question: "Une fausse déclaration intentionnelle (mauvaise foi) dans la déclaration du risque initial entraine :",
+                options: [
+                    "la nullité du contrat d'assurance",
+                    "une simple augmentation de la prime",
+                    "une majoration de la garantie",
+                    "aucune sanction particulière"
+                ],
+                correct: 0
+            },
+            {
+                question: "Une fausse déclaration de bonne foi découverte après sinistre entraine :",
+                options: [
+                    "une réduction proportionnelle de l'indemnité",
+                    "l'annulation rétroactive du contrat",
+                    "une pénalité financière fixe",
+                    "une exonération de l'assureur pour tous les sinistres futurs"
+                ],
+                correct: 0
+            },
+            {
+                question: "Si une déclaration inexacte de bonne foi est découverte avant sinistre, l'assureur peut :",
+                options: [
+                    "maintenir le contrat avec surprime ou résilier",
+                    "obtenir automatiquement la nullité du contrat",
+                    "refuser toute réclamation future",
+                    "réduire l'indemnité prévue"
+                ],
+                correct: 0
+            },
+            {
+                question: "Toute aggravation du risque doit être déclarée par l'assuré dans un délai de :",
+                options: [
+                    "15 jours à partir de sa connaissance",
+                    "1 mois à partir de sa connaissance",
+                    "1 an à partir de sa connaissance",
+                    "aucun délai précis"
+                ],
+                correct: 0
+            },
+            {
+                question: "La sous-assurance désigne la situation où :",
+                options: [
+                    "la somme assurée est inférieure à la valeur réelle du bien",
+                    "la somme assurée est supérieure à la valeur réelle du bien",
+                    "la garantie est limitée à un plafond légal",
+                    "le contrat d'assurance est de courte durée"
+                ],
+                correct: 0
+            },
+            {
+                question: "En cas de sous-assurance, l'assuré :",
+                options: [
+                    "supporte proportionnellement la partie non couverte du dommage",
+                    "n'est pas indemnisé",
+                    "reçoit une indemnité fixe majorée",
+                    "peut compléter par une assurance secondaire"
+                ],
+                correct: 0
+            },
+            {
+                question: "En cas de surassurance non frauduleuse, le contrat :",
+                options: [
+                    "reste valable mais l'indemnité est limitée à la valeur réelle du bien",
+                    "est automatiquement annulé",
+                    "donne lieu à un bonus pour l'assuré",
+                    "est convertible en coassurance"
+                ],
+                correct: 0
+            },
+            {
+                question: "La surassurance frauduleuse (dolosive) entraine :",
+                options: [
+                    "la nullité du contrat d'assurance",
+                    "l'application d'une surprime",
+                    "l'indemnisation doublée",
+                    "la cession du contrat à un tiers"
+                ],
+                correct: 0
+            },
+            {
+                question: "Les assurances multiples cumulatives supposent notamment :",
+                options: [
+                    "qu'un même objet soit assuré simultanément par plusieurs assureurs",
+                    "qu'il n'existe qu'un seul assureur par risque",
+                    "que les primes soient payées en commun",
+                    "que les contrats soient conclus en différentes devises"
+                ],
+                correct: 0
+            },
+            {
+                question: "Lorsqu'un assuré souscrit plusieurs contrats portant sur le même objet, il doit :",
+                options: [
+                    "déclarer cette situation à chaque assureur concerné",
+                    "ne pas informer les assureurs pour éviter un surcoût",
+                    "n'en informer que le premier assureur",
+                    "partager la prime entre tous les assureurs"
+                ],
+                correct: 0
+            },
+            {
+                question: "Les assurances multiples contractées de manière dolosive (frauduleuse) peuvent :",
+                options: [
+                    "être annulées",
+                    "être cumulées sans limitation",
+                    "être converties en coassurance",
+                    "ne jamais donner lieu à indemnisation"
+                ],
+                correct: 0
+            },
+            {
+                question: "Si plusieurs assurances cumulatives ont été contractées sans dol, l'assuré :",
+                options: [
+                    "peut s'adresser à l'assureur de son choix pour être indemnisé",
+                    "doit se faire indemniser par ordre chronologique",
+                    "n'est indemnisé qu'une seule fois",
+                    "partage automatiquement le sinistre entre tous les assureurs"
+                ],
+                correct: 0
+            },
+            {
+                question: "Dans le cadre d'assurances multiples cumulatives non dolosives, la contribution des assureurs à l'indemnité se fait :",
+                options: [
+                    "au prorata de leurs engagements respectifs",
+                    "au prorata du nombre de sinistres antérieurs",
+                    "en totalité par le premier assureur contacté",
+                    "selon la priorité du contrat le plus récent"
+                ],
+                correct: 0
+            },
+            {
+                question: "Selon l'article 21 du Code CIMA, l'assuré peut résilier son contrat d'assurance annuellement en envoyant un préavis d'au moins :",
+                options: [
+                    "1 mois avant l'échéance",
+                    "2 mois avant l'échéance",
+                    "6 mois avant l'échéance",
+                    "15 jours avant l'échéance"
+                ],
+                correct: 1
+            },
+            {
+                question: "Au regard du Code CIMA, la faculté annuelle de résiliation est accordée à :",
+                options: [
+                    "l'assuré uniquement",
+                    "l'assureur uniquement",
+                    "l'assuré et l'assureur",
+                    "aucun des deux"
                 ],
                 correct: 2
             },
             {
-                question: "Quels sont les deux éléments constitutifs du patrimoine selon le droit civil ?",
+                question: "Une clause du contrat peut-elle déroger à la faculté annuelle de résiliation ?",
                 options: [
-                    "Les biens et les dettes.",
-                    "Les droits réels et les droits personnels.",
-                    "Les biens meubles et immeubles.",
-                    "Les droits patrimoniaux et extrapatrimoniaux."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quels sont les deux types de droits qui composent le patrimoine ?",
-                options: [
-                    "Les droits réels et les droits personnels.",
-                    "Les droits extrapatrimoniaux et les droits réels.",
-                    "Les droits de propriété et les droits de créance.",
-                    "Les droits réels et les droits incorporels."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quelle est la principale caractéristique des droits extrapatrimoniaux ?",
-                options: [
-                    "Ils sont cessibles et transmissibles.",
-                    "Ils ne peuvent pas être évalués en argent.",
-                    "Ils concernent uniquement les biens meubles.",
-                    "Ils sont toujours liés à une activité professionnelle."
+                    "Oui, par accord des parties",
+                    "Non, la faculté annuelle prévaut",
+                    "Oui, si le contrat est à durée déterminée",
+                    "Cela dépend de la nature du risque"
                 ],
                 correct: 1
             },
             {
-                question: "Quel est l'objectif principal de l'étude des notions essentielles du droit patrimonial ?",
+                question: "Pour qu'une clause de reconduction tacite soit valide, il faut notamment :",
                 options: [
-                    "Analyser les rapports entre les biens meubles et immeubles.",
-                    "Déterminer les différentes catégories de biens et leur régime juridique.",
-                    "Étudier les droits extrapatrimoniaux uniquement.",
-                    "Réglementer les transactions immobilières."
+                    "que le contrat ait déjà été résilié auparavant",
+                    "qu'elle soit expressément prévue par le contrat",
+                    "que l'assuré ait payé toutes ses primes",
+                    "que le risque soit futur et certain"
                 ],
                 correct: 1
             },
             {
-                question: "Pourquoi toute personne possède-t-elle un patrimoine en droit civil ?",
+                question: "Quel est le maximum de la durée de chaque reconduction tacite prévue par clause ?",
                 options: [
-                    "Parce qu'elle est obligée de posséder des biens.",
-                    "Parce que le patrimoine est un attribut de la personne.",
-                    "Parce que les droits patrimoniaux sont universels.",
-                    "Parce que le patrimoine est seulement constitué d'actifs."
+                    "6 mois",
+                    "2 ans",
+                    "1 an",
+                    "5 ans"
+                ],
+                correct: 2
+            },
+            {
+                question: "En cas de non-paiement de la prime par l'assuré, le contrat d'assurance :",
+                options: [
+                    "peut être suspendu temporairement",
+                    "reste en vigueur sans le paiement de la prime",
+                    "est résilié de plein droit au profit de l'assureur",
+                    "est prorogé automatiquement"
+                ],
+                correct: 2
+            },
+            {
+                question: "Après un sinistre, l'assureur qui souhaite résilier le contrat doit notifier sa décision dans un délai de :",
+                options: [
+                    "1 mois après la connaissance du sinistre",
+                    "3 mois après la connaissance du sinistre",
+                    "6 mois après la connaissance du sinistre",
+                    "15 jours après la connaissance du sinistre"
                 ],
                 correct: 1
             },
             {
-                question: "Comment le patrimoine est-il défini en droit civil ?",
+                question: "La résiliation après sinistre prend effet :",
                 options: [
-                    "Comme l'ensemble des biens et des dettes actuels et à venir d'une personne.",
-                    "Comme l'ensemble des biens mobiliers d'une personne.",
-                    "Comme uniquement les actifs possédés par une personne.",
-                    "Comme une collection de droits exclusivement extrapatrimoniaux."
+                    "immédiatement à la réception de la notification",
+                    "deux mois après la notification",
+                    "un an après la notification",
+                    "un mois après la notification"
                 ],
-                correct: 0
+                correct: 3
             },
             {
-                question: "Quelle est la conséquence principale du lien entre patrimoine et personne en droit civil ?",
+                question: "Si l'assureur accepte une prime de renouvellement moins d'un mois après la survenance du sinistre, il :",
                 options: [
-                    "Une personne peut perdre son patrimoine en cas de faillite.",
-                    "Un patrimoine ne peut pas exister sans une personne à qui il est rattaché.",
-                    "Les droits patrimoniaux sont automatiquement transmissibles sans règles spécifiques.",
-                    "Une personne peut transférer tout son patrimoine à une autre sans restriction."
+                    "perd son droit de résilier",
+                    "doit rembourser la prime",
+                    "peut toujours exercer son droit de résiliation",
+                    "est considéré avoir renoncé à la résiliation"
+                ],
+                correct: 2
+            },
+            {
+                question: "Selon l'article 23 du Code CIMA, si une police prévoit que l'assureur peut résilier après sinistre, l'assuré peut :",
+                options: [
+                    "payer une prime réduite",
+                    "exiger l'extension de la couverture",
+                    "ne pas faire jouer la clause de sinistre",
+                    "résilier tous les autres contrats qu'il a souscrits chez le même assureur"
+                ],
+                correct: 3
+            },
+            {
+                question: "L'assureur qui résilie le contrat après sinistre doit en informer l'assuré :",
+                options: [
+                    "par simple coup de téléphone",
+                    "en inscrivant la clause dans son bulletin interne",
+                    "par lettre recommandée ou acte extrajudiciaire",
+                    "par tout moyen à la convenance de l'assureur"
+                ],
+                correct: 2
+            },
+            {
+                question: "La clause de découvert obligatoire impose que l'assuré :",
+                options: [
+                    "assure la totalité du dommage",
+                    "supporte une part du dommage non indemnisé par l'assureur",
+                    "couvre le dommage par un fonds de garantie",
+                    "verse immédiatement sa part à l'assureur"
                 ],
                 correct: 1
             },
             {
-                question: "En quoi consiste l'approche nuancée du patrimoine adoptée en France ?",
+                question: "La franchise simple signifie que :",
                 options: [
-                    "Elle interdit toute forme de séparation entre le patrimoine personnel et professionnel.",
-                    "Elle permet aux entrepreneurs individuels de limiter leur responsabilité aux biens affectés à leur activité.",
-                    "Elle impose un patrimoine unique à chaque personne, quelle que soit son activité.",
-                    "Elle supprime la distinction entre patrimoine personnel et patrimoine professionnel."
+                    "aucun sinistre n'est couvert en dessous d'un plafond",
+                    "l'assureur fixe le montant de chaque indemnité",
+                    "tout dommage est remboursé intégralement",
+                    "les sinistres inférieurs à un certain seuil ne sont pas indemnisés"
+                ],
+                correct: 3
+            },
+            {
+                question: "En cas de franchise absolue, l'assureur :",
+                options: [
+                    "couvre toujours le dommage en totalité",
+                    "n'applique jamais de franchise pour les petits sinistres",
+                    "déduit la franchise de chaque indemnité, même pour les gros sinistres",
+                    "rembourse l'assuré seulement après trois sinistres"
+                ],
+                correct: 2
+            },
+            {
+                question: "La clause de découvert interdit à l'assuré de :",
+                options: [
+                    "contester le montant de la franchise",
+                    "modifier le contrat sans l'accord de l'assureur",
+                    "quitter le territoire assuré",
+                    "faire assurer par un autre assureur la part du dommage qu'il doit supporter"
+                ],
+                correct: 3
+            },
+            {
+                question: "Selon le Code CIMA, l'assureur n'est pas tenu d'indemniser :",
+                options: [
+                    "les pertes dues à un événement imprévisible",
+                    "les dommages survenus après la fin du contrat",
+                    "les dommages causés intentionnellement par l'assuré",
+                    "les préjudices matériels garantis"
+                ],
+                correct: 2
+            },
+            {
+                question: "La subrogation conventionnelle permet à l'assureur, après indemnisation :",
+                options: [
+                    "de modifier le contrat d'assurance",
+                    "d'exercer les droits de l'assuré contre le responsable du dommage",
+                    "de doubler la prime du prochain contrat",
+                    "d'annuler la déclaration du risque"
                 ],
                 correct: 1
             },
             {
-                question: "Pourquoi les droits de la personnalité restent-ils extrapatrimoniaux malgré les controverses doctrinales ?",
+                question: "En cas de subrogation réelle (article 43 CIMA), le créancier hypothécaier peut :",
                 options: [
-                    "Parce qu'ils ne sont pas directement liés à des transactions économiques.",
-                    "Parce qu'ils sont accordés à l'individu en raison de la dignité humaine.",
-                    "Parce qu'ils ne peuvent jamais faire l'objet d'une sanction pécuniaire.",
-                    "Parce qu'ils sont toujours liés à des droits réels accessoires."
+                    "conserver le bien détruit",
+                    "revendre la police d'assurance",
+                    "se faire payer l'indemnité d'assurance due sur le bien sinistré",
+                    "obliger l'assuré à souscrire un nouvel emprunt"
+                ],
+                correct: 2
+            },
+            {
+                question: "Le principe indemnitaire signifie que :",
+                options: [
+                    "l'assureur verse toujours une somme minimale",
+                    "l'assuré ne peut pas être indemnisé au-delà de la valeur de son préjudice",
+                    "l'indemnité dépend du bénéfice réalisé par l'assuré",
+                    "la franchise est toujours remboursée"
                 ],
                 correct: 1
             },
             {
-                question: "Quelle est la différence entre un droit réel et un droit personnel ?",
+                question: "La liberté contractuelle en assurance permet aux parties de :",
                 options: [
-                    "Le droit réel porte directement sur une chose, tandis que le droit personnel s'exerce contre une personne.",
-                    "Le droit personnel est toujours transmissible, contrairement au droit réel.",
-                    "Le droit réel ne peut porter que sur des biens immobiliers.",
-                    "Le droit personnel ne peut jamais être évalué en argent."
+                    "obtenir une résiliation du contrat à tout moment sans condition",
+                    "déterminer arbitrairement la valeur du bien assuré",
+                    "contourner les règles légales relatives au montant de la prime",
+                    "limiter volontairement les garanties ou les capitaux assurés"
                 ],
-                correct: 0
+                correct: 3
+            },
+            {
+                question: "L'obligation de déclarer une aggravation du risque ne s'applique pas en matière :",
+                options: [
+                    "d'assurance habitation",
+                    "d'assurance automobile",
+                    "d'assurance responsabilité civile",
+                    "d'assurance vie"
+                ],
+                correct: 3
+            },
+            {
+                question: "L'assureur n'est tenu de payer l'indemnité que lorsque :",
+                options: [
+                    "l'assuré en fait expressément la demande",
+                    "le tiers responsable est identifié",
+                    "le sinistre garanti s'est produit et les conditions du contrat sont remplies",
+                    "le montant de la prime est versé d'avance"
+                ],
+                correct: 2
+            },
+            {
+                question: "La coassurance se caractérise par :",
+                options: [
+                    "l'assureur unique d'un risque",
+                    "une indemnisation plus élevée",
+                    "une clause de subrogation spécifique",
+                    "plusieurs assureurs partageant le risque entre eux (chacun couvrant une quote-part)"
+                ],
+                correct: 3
+            },
+            {
+                question: "Les assurances multiples cumulatives signifient que :",
+                options: [
+                    "plusieurs assurances couvrent des biens différents",
+                    "le même risque est garanti simultanément par plusieurs contrats",
+                    "les polices se succèdent dans le temps",
+                    "chaque assureur garantit une partie distincte du dommage"
+                ],
+                correct: 1
+            },
+            {
+                question: "La clause de découvert obligatoire a pour effet de :",
+                options: [
+                    "limiter la prime",
+                    "garantir le remboursement intégral",
+                    "inciter l'assuré à supporter une partie du dommage",
+                    "exonérer l'assureur de la moindre responsabilité"
+                ],
+                correct: 2
+            },
+            {
+                question: "Le caractère non impératif de l'article 35 du Code CIMA implique que les parties :",
+                options: [
+                    "ne peuvent pas modifier la règle proportionnelle",
+                    "peuvent déroger à la règle proportionnelle par une clause",
+                    "doivent toujours appliquer la sous-assurance",
+                    "doivent revérifier la valeur du bien après sinistre"
+                ],
+                correct: 1
+            },
+            {
+                question: "La clause de tolérance en assurance correspond à :",
+                options: [
+                    "un report des primes",
+                    "une renonciation illimitée de l'assuré",
+                    "une garantie supplémentaire pour les petits sinistres",
+                    "une renonciation partielle par l'assureur à la sous-assurance jusqu'à un certain seuil"
+                ],
+                correct: 3
+            },
+            {
+                question: "En l'absence d'un assureur responsable, on fait appel au :",
+                options: [
+                    "ministère des finances",
+                    "fonds de garantie automobile",
+                    "tribunal arbitral spécial",
+                    "dernier assureur connu"
+                ],
+                correct: 1
+            },
+            {
+                question: "Après un accident de la route, l'assureur doit présenter une offre d'indemnité à la victime dans un délai maximum de :",
+                options: [
+                    "6 mois",
+                    "12 mois",
+                    "3 mois",
+                    "24 mois"
+                ],
+                correct: 1
+            },
+            {
+                question: "Si l'offre d'indemnité est faite hors délai, l'indemnité due par l'assureur produit automatiquement :",
+                options: [
+                    "une pénalité administrative de 10%",
+                    "des intérêts de retard à 5% par mois de retard",
+                    "une indemnisation forfaitaire doublée",
+                    "aucun effet rétroactif sur le montant"
+                ],
+                correct: 1
+            },
+            {
+                question: "En cas de refus d'indemniser une victime, celle-ci peut :",
+                options: [
+                    "demander la couverture du Fonds de garantie",
+                    "saisir la justice pour faire valoir ses droits",
+                    "résilier son propre contrat d'assurance",
+                    "réclamer un remboursement des primes versées"
+                ],
+                correct: 1
             }
         ];
 

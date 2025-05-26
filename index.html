@@ -3,655 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Droit des Biens</title>
+    <title>Joyeux Anniversaire Mon Amour ❤️</title>
     <style>
-        :root {
-            --primary-color: #6366f1;
-            --error-color: #ef4444;
-            --success-color: #10b981;
-            --text-color: #1e293b;
-            --bg-color: #f8fafc;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background: linear-gradient(135deg, #a5b4fc, #818cf8);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: var(--text-color);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        h1 {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebee;
             text-align: center;
+            padding: 20px;
+            color: #d81b60;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 2.5em;
             margin-bottom: 20px;
-            color: #1e293b;
-            font-weight: 700;
         }
-
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        .photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto;
+            border: 5px solid #f8bbd0;
         }
-
-        .progress-container {
-            flex-grow: 1;
-            margin: 0 15px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--primary-color);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        .score-container {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .question-container {
+        .message {
+            font-size: 1.2em;
+            line-height: 1.6;
             margin-bottom: 30px;
         }
-
-        .question {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .options {
-            display: grid;
-            gap: 12px;
-        }
-
-        .option {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 15px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .option:hover {
-            background: rgba(255, 255, 255, 0.7);
-            transform: translateY(-2px);
-        }
-
-        .option.selected {
-            background: rgba(99, 102, 241, 0.3);
-            border-color: var(--primary-color);
-        }
-
-        .option.correct {
-            background: rgba(16, 185, 129, 0.3);
-            border-color: var(--success-color);
-        }
-
-        .option.incorrect {
-            background: rgba(239, 68, 68, 0.3);
-            border-color: var(--error-color);
-        }
-
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        button {
-            background: var(--primary-color);
+        .btn {
+            background-color: #f06292;
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-
-        button:hover {
-            background: #4f46e5;
-            transform: translateY(-2px);
+        .btn:hover {
+            background-color: #ec407a;
+            transform: scale(1.05);
         }
-
-        button:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-            transform: none;
+        .hearts {
+            font-size: 2em;
+            margin: 20px 0;
+            animation: pulse 1.5s infinite;
         }
-
-        .results {
-            text-align: center;
-            display: none;
-        }
-
-        .results h2 {
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-
-        .final-score {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .result-details {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .result-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .result-item:last-child {
-            border-bottom: none;
-        }
-
-        .result-question {
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .result-correct {
-            color: var(--success-color);
-            font-weight: 600;
-        }
-
-        .result-incorrect {
-            color: var(--error-color);
-            font-weight: 600;
-        }
-
-        .restart-btn {
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .question {
-                font-size: 16px;
-            }
-            
-            .option {
-                padding: 12px;
-            }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Quiz de Droit des Biens</h1>
+        <h1>Joyeux Anniversaire Mon Amour! ❤️</h1>
         
-        <div id="quiz-section">
-            <div class="quiz-header">
-                <div class="question-counter">Question <span id="current-question">1</span>/<span id="total-questions">20</span></div>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progress"></div>
-                </div>
-                <div class="score-container">Score: <span id="score">0</span>/20</div>
-            </div>
-            
-            <div class="question-container">
-                <div class="question" id="question-text"></div>
-                <div class="options" id="options-container"></div>
-            </div>
-            
-            <div class="controls">
-                <button id="prev-btn" disabled>Précédent</button>
-                <button id="next-btn" disabled>Suivant</button>
-            </div>
+        <!-- Remplace "photo.jpg" par le chemin de ta photo -->
+        <img src="photo.jpg" alt="Nous deux" class="photo">
+        
+        <div class="hearts">❤️ ❤️ ❤️</div>
+        
+        <div class="message">
+            <p>Ma chérie,</p>
+            <p>En ce jour spécial, je voulais te dire à quel point tu comptes pour moi.</p>
+            <p>Tu illumines ma vie chaque jour avec ton sourire, ta joie de vivre et ton amour.</p>
+            <p>Je te souhaite un anniversaire aussi merveilleux que tu l'es pour moi.</p>
+            <p>Aujourd'hui et pour toujours, je serai là pour toi.</p>
+            <p>Avec tout mon amour,</p>
+            <p><strong>[Ton prénom]</strong></p>
         </div>
         
-        <div class="results" id="results-section">
-            <h2>Résultats du Quiz</h2>
-            <div class="final-score">Votre score: <span id="final-score">0</span>/20</div>
-            
-            <div class="result-details" id="incorrect-answers">
-                <h3>Revue des réponses incorrectes:</h3>
-                <div id="incorrect-list"></div>
-            </div>
-            
-            <button class="restart-btn" id="restart-btn">Recommencer le Quiz</button>
-        </div>
+        <button class="btn" onclick="playMusic()">Clique pour une surprise</button>
+        
+        <!-- Audio caché -->
+        <audio id="birthdaySong" src="happy-birthday.mp3"></audio>
     </div>
 
     <script>
-        const quizData = [
-            {
-                question: "En droit, que désigne principalement le terme « bien » ?",
-                options: [
-                    "Les choses qui servent à l'usage de l'homme et permettent de satisfaire ses besoins.",
-                    "Les personnes qui possèdent des droits.",
-                    "Les éléments immatériels uniquement.",
-                    "Les objets sans valeur économique."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quel est le rôle principal du droit des biens en droit patrimonial ?",
-                options: [
-                    "Étudier la circulation des biens entre les patrimoines.",
-                    "Analyser les rapports entre les personnes et leurs biens.",
-                    "Fournir une vue d'ensemble des différents biens et leur régime juridique.",
-                    "Réglementer uniquement les biens immatériels."
-                ],
-                correct: 2
-            },
-            {
-                question: "Pourquoi le Livre II du Code civil, qui traite des biens, n'a-t-il pas été profondément réformé depuis la codification napoléonienne ?",
-                options: [
-                    "Parce qu'il est considéré comme obsolète et inutile.",
-                    "Parce qu'il contient des concepts forts capables de s'adapter aux nouvelles richesses.",
-                    "Parce que la société contemporaine n'a pas évolué depuis 1804.",
-                    "Parce qu'il ne s'applique qu'aux biens immobiliers."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quelle est la conception adoptée par la Côte d'Ivoire concernant la théorie du patrimoine ?",
-                options: [
-                    "La théorie du patrimoine d'affectation.",
-                    "La conception personnaliste du patrimoine.",
-                    "La théorie des patrimoines multiples.",
-                    "La conception économique du patrimoine."
-                ],
-                correct: 1
-            },
-            {
-                question: "Selon la conception personnaliste du patrimoine, laquelle des affirmations suivantes est correcte ?",
-                options: [
-                    "Une personne peut avoir plusieurs patrimoines.",
-                    "Le patrimoine est rattaché à l'activité exercée par une personne.",
-                    "Le patrimoine est un attribut de la personne et chaque personne a un patrimoine unique.",
-                    "Les droits extrapatrimoniaux font partie du patrimoine."
-                ],
-                correct: 2
-            },
-            {
-                question: "Quels droits sont considérés comme extrapatrimoniaux selon la conception personnaliste du patrimoine ?",
-                options: [
-                    "Les droits de propriété.",
-                    "Les droits de la personnalité, comme le droit au nom et à la vie privée.",
-                    "Les droits de créance.",
-                    "Les droits réels accessoires."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quel est l'inconvénient principal de la théorie du patrimoine d'affectation ?",
-                options: [
-                    "Elle ne permet pas de distinguer les biens meubles des biens immeubles.",
-                    "Elle limite les créanciers à se faire payer uniquement sur les biens affectés à une activité spécifique.",
-                    "Elle ne reconnaît pas les droits extrapatrimoniaux.",
-                    "Elle interdit la transmission du patrimoine à cause de mort."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quelle est la différence entre les droits patrimoniaux et extrapatrimoniaux ?",
-                options: [
-                    "Les droits patrimoniaux sont cessibles et saisissables, tandis que les droits extrapatrimoniaux ne le sont pas.",
-                    "Les droits extrapatrimoniaux concernent uniquement les biens immobiliers.",
-                    "Les droits patrimoniaux ne peuvent pas être évalués en argent.",
-                    "Les droits extrapatrimoniaux sont toujours transmissibles à cause de mort."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quelle est la principale différence entre la conception personnaliste et la théorie du patrimoine d'affectation ?",
-                options: [
-                    "La conception personnaliste rattache le patrimoine à la personne, tandis que la théorie du patrimoine d'affectation le rattache à une activité.",
-                    "La théorie du patrimoine d'affectation interdit la transmission du patrimoine.",
-                    "La conception personnaliste permet d'avoir plusieurs patrimoines.",
-                    "La théorie du patrimoine d'affectation exclut les biens incorporels."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quelle est la position de la législation française concernant la théorie du patrimoine ?",
-                options: [
-                    "Elle adopte strictement la conception personnaliste.",
-                    "Elle adopte strictement la théorie du patrimoine d'affectation.",
-                    "Elle propose une approche nuancée en permettant des patrimoines affectés à certaines activités.",
-                    "Elle interdit toute forme de patrimoine multiple."
-                ],
-                correct: 2
-            },
-            {
-                question: "Quels sont les deux éléments constitutifs du patrimoine selon le droit civil ?",
-                options: [
-                    "Les biens et les dettes.",
-                    "Les droits réels et les droits personnels.",
-                    "Les biens meubles et immeubles.",
-                    "Les droits patrimoniaux et extrapatrimoniaux."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quels sont les deux types de droits qui composent le patrimoine ?",
-                options: [
-                    "Les droits réels et les droits personnels.",
-                    "Les droits extrapatrimoniaux et les droits réels.",
-                    "Les droits de propriété et les droits de créance.",
-                    "Les droits réels et les droits incorporels."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quelle est la principale caractéristique des droits extrapatrimoniaux ?",
-                options: [
-                    "Ils sont cessibles et transmissibles.",
-                    "Ils ne peuvent pas être évalués en argent.",
-                    "Ils concernent uniquement les biens meubles.",
-                    "Ils sont toujours liés à une activité professionnelle."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quel est l'objectif principal de l'étude des notions essentielles du droit patrimonial ?",
-                options: [
-                    "Analyser les rapports entre les biens meubles et immeubles.",
-                    "Déterminer les différentes catégories de biens et leur régime juridique.",
-                    "Étudier les droits extrapatrimoniaux uniquement.",
-                    "Réglementer les transactions immobilières."
-                ],
-                correct: 1
-            },
-            {
-                question: "Pourquoi toute personne possède-t-elle un patrimoine en droit civil ?",
-                options: [
-                    "Parce qu'elle est obligée de posséder des biens.",
-                    "Parce que le patrimoine est un attribut de la personne.",
-                    "Parce que les droits patrimoniaux sont universels.",
-                    "Parce que le patrimoine est seulement constitué d'actifs."
-                ],
-                correct: 1
-            },
-            {
-                question: "Comment le patrimoine est-il défini en droit civil ?",
-                options: [
-                    "Comme l'ensemble des biens et des dettes actuels et à venir d'une personne.",
-                    "Comme l'ensemble des biens mobiliers d'une personne.",
-                    "Comme uniquement les actifs possédés par une personne.",
-                    "Comme une collection de droits exclusivement extrapatrimoniaux."
-                ],
-                correct: 0
-            },
-            {
-                question: "Quelle est la conséquence principale du lien entre patrimoine et personne en droit civil ?",
-                options: [
-                    "Une personne peut perdre son patrimoine en cas de faillite.",
-                    "Un patrimoine ne peut pas exister sans une personne à qui il est rattaché.",
-                    "Les droits patrimoniaux sont automatiquement transmissibles sans règles spécifiques.",
-                    "Une personne peut transférer tout son patrimoine à une autre sans restriction."
-                ],
-                correct: 1
-            },
-            {
-                question: "En quoi consiste l'approche nuancée du patrimoine adoptée en France ?",
-                options: [
-                    "Elle interdit toute forme de séparation entre le patrimoine personnel et professionnel.",
-                    "Elle permet aux entrepreneurs individuels de limiter leur responsabilité aux biens affectés à leur activité.",
-                    "Elle impose un patrimoine unique à chaque personne, quelle que soit son activité.",
-                    "Elle supprime la distinction entre patrimoine personnel et patrimoine professionnel."
-                ],
-                correct: 1
-            },
-            {
-                question: "Pourquoi les droits de la personnalité restent-ils extrapatrimoniaux malgré les controverses doctrinales ?",
-                options: [
-                    "Parce qu'ils ne sont pas directement liés à des transactions économiques.",
-                    "Parce qu'ils sont accordés à l'individu en raison de la dignité humaine.",
-                    "Parce qu'ils ne peuvent jamais faire l'objet d'une sanction pécuniaire.",
-                    "Parce qu'ils sont toujours liés à des droits réels accessoires."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quelle est la différence entre un droit réel et un droit personnel ?",
-                options: [
-                    "Le droit réel porte directement sur une chose, tandis que le droit personnel s'exerce contre une personne.",
-                    "Le droit personnel est toujours transmissible, contrairement au droit réel.",
-                    "Le droit réel ne peut porter que sur des biens immobiliers.",
-                    "Le droit personnel ne peut jamais être évalué en argent."
-                ],
-                correct: 0
-            }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-        let userAnswers = new Array(quizData.length).fill(-1);
-        let answeredQuestions = new Array(quizData.length).fill(false);
-        
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        const currentQuestionElem = document.getElementById('current-question');
-        const totalQuestionsElem = document.getElementById('total-questions');
-        const progressBar = document.getElementById('progress');
-        const scoreElem = document.getElementById('score');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const quizSection = document.getElementById('quiz-section');
-        const resultsSection = document.getElementById('results-section');
-        const finalScoreElem = document.getElementById('final-score');
-        const incorrectList = document.getElementById('incorrect-list');
-        const restartBtn = document.getElementById('restart-btn');
-        
-        // Initialize quiz
-        function initQuiz() {
-            totalQuestionsElem.textContent = quizData.length;
-            loadQuestion();
+        function playMusic() {
+            const song = document.getElementById('birthdaySong');
+            song.play();
             
-            prevBtn.addEventListener('click', goToPreviousQuestion);
-            nextBtn.addEventListener('click', goToNextQuestion);
-            restartBtn.addEventListener('click', restartQuiz);
+            // Animation de confettis
+            for(let i = 0; i < 100; i++) {
+                createConfetti();
+            }
         }
         
-        // Load question
-        function loadQuestion() {
-            currentQuestionElem.textContent = currentQuestion + 1;
-            questionText.textContent = quizData[currentQuestion].question;
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.innerHTML = ['❤️', '🎉', '🎂', '🎁', '✨'][Math.floor(Math.random() * 5)];
+            confetti.style.position = 'fixed';
+            confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = -50 + 'px';
+            confetti.style.zIndex = 9999;
+            document.body.appendChild(confetti);
             
-            // Update progress bar
-            progressBar.style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
+            const animationDuration = Math.random() * 3 + 2;
             
-            // Create options
-            optionsContainer.innerHTML = '';
-            quizData[currentQuestion].options.forEach((option, index) => {
-                const optionElement = document.createElement('div');
-                optionElement.classList.add('option');
-                optionElement.textContent = option;
-                
-                // Check if this question has been answered before
-                if (answeredQuestions[currentQuestion] && userAnswers[currentQuestion] === index) {
-                    optionElement.classList.add('selected');
-                    
-                    // Show correct/incorrect after selection
-                    if (index === quizData[currentQuestion].correct) {
-                        optionElement.classList.add('correct');
-                    } else {
-                        optionElement.classList.add('incorrect');
-                    }
-                }
-                
-                optionElement.addEventListener('click', () => selectOption(index));
-                optionsContainer.appendChild(optionElement);
+            confetti.animate([
+                { top: -50 + 'px', opacity: 1 },
+                { top: window.innerHeight + 'px', opacity: 0 }
+            ], {
+                duration: animationDuration * 1000,
+                easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
             });
             
-            // Update button states
-            updateButtonStates();
+            setTimeout(() => {
+                confetti.remove();
+            }, animationDuration * 1000);
         }
-        
-        // Select option
-        function selectOption(selectedIndex) {
-            // Skip if already answered
-            if (answeredQuestions[currentQuestion]) return;
-            
-            const options = optionsContainer.querySelectorAll('.option');
-            
-            // Mark as answered
-            answeredQuestions[currentQuestion] = true;
-            userAnswers[currentQuestion] = selectedIndex;
-            
-            // Update score
-            if (selectedIndex === quizData[currentQuestion].correct) {
-                score++;
-                scoreElem.textContent = score;
-            }
-            
-            // Update UI
-            options.forEach((option, index) => {
-                if (index === selectedIndex) {
-                    option.classList.add('selected');
-                    
-                    if (index === quizData[currentQuestion].correct) {
-                        option.classList.add('correct');
-                    } else {
-                        option.classList.add('incorrect');
-                    }
-                }
-                
-                if (index === quizData[currentQuestion].correct && index !== selectedIndex) {
-                    option.classList.add('correct');
-                }
-            });
-            
-            // Enable next button
-            nextBtn.disabled = false;
-        }
-        
-        // Navigate to previous question
-        function goToPreviousQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                loadQuestion();
-            }
-        }
-        
-        // Navigate to next question
-        function goToNextQuestion() {
-            if (currentQuestion < quizData.length - 1) {
-                currentQuestion++;
-                loadQuestion();
-            } else {
-                showResults();
-            }
-        }
-        
-        // Update button states
-        function updateButtonStates() {
-            prevBtn.disabled = currentQuestion === 0;
-            
-            // Enable next button if question is answered or it's the last question
-            nextBtn.disabled = !answeredQuestions[currentQuestion] && currentQuestion !== quizData.length - 1;
-            
-            // Change next button text for last question
-            if (currentQuestion === quizData.length - 1) {
-                nextBtn.textContent = 'Terminer';
-            } else {
-                nextBtn.textContent = 'Suivant';
-            }
-        }
-        
-        // Show results
-        function showResults() {
-            quizSection.style.display = 'none';
-            resultsSection.style.display = 'block';
-            
-            finalScoreElem.textContent = score;
-            
-            // Generate incorrect answers list
-            incorrectList.innerHTML = '';
-            userAnswers.forEach((answer, index) => {
-                if (answer !== quizData[index].correct && answer !== -1) {
-                    const resultItem = document.createElement('div');
-                    resultItem.classList.add('result-item');
-                    
-                    const resultQuestion = document.createElement('div');
-                    resultQuestion.classList.add('result-question');
-                    resultQuestion.textContent = quizData[index].question;
-                    
-                    const yourAnswer = document.createElement('div');
-                    yourAnswer.classList.add('result-incorrect');
-                    yourAnswer.textContent = `Votre réponse: ${quizData[index].options[answer]}`;
-                    
-                    const correctAnswer = document.createElement('div');
-                    correctAnswer.classList.add('result-correct');
-                    correctAnswer.textContent = `Réponse correcte: ${quizData[index].options[quizData[index].correct]}`;
-                    
-                    resultItem.appendChild(resultQuestion);
-                    resultItem.appendChild(yourAnswer);
-                    resultItem.appendChild(correctAnswer);
-                    
-                    incorrectList.appendChild(resultItem);
-                }
-            });
-            
-            // If no incorrect answers
-            if (incorrectList.children.length === 0) {
-                const perfectScore = document.createElement('div');
-                perfectScore.textContent = "Félicitations ! Vous avez répondu correctement à toutes les questions.";
-                incorrectList.appendChild(perfectScore);
-            }
-        }
-        
-        // Restart quiz
-        function restartQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            userAnswers = new Array(quizData.length).fill(-1);
-            answeredQuestions = new Array(quizData.length).fill(false);
-            
-            scoreElem.textContent = score;
-            
-            resultsSection.style.display = 'none';
-            quizSection.style.display = 'block';
-            
-            loadQuestion();
-        }
-        
-        // Initialize quiz on page load
-        window.addEventListener('load', initQuiz);
     </script>
 </body>
 </html>
